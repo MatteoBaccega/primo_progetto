@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import datetime
 
 # Create your views here.
 def es_if(request):
@@ -9,6 +10,7 @@ def es_if(request):
     'var3' : 300 }
     #Calling the render() method to render the request from es_if.html page by using the dictionary, dic
     return render(request, "es_if.html", dic)
+
 def if_else_elif(request):
     context= {
         'var1': 10,
@@ -16,3 +18,10 @@ def if_else_elif(request):
     }
     return render( request,'seconda_app/if_else_elif.html',context)
 
+def es_for(request):
+    dic = {
+        'list1': [1, datetime.date(2019, 7, 16), 'Do not give up!'],
+        'list2': [1, datetime.date(2019, 7, 16), 'Do not give up!'],
+        'my_dict': {'chiave1': 'Valore 1', 'chiave2': 'Valore 2'}  # <-- Aggiungi questa riga
+    }
+    return render(request, "es_for.html", dic)
